@@ -3,7 +3,7 @@ CFLAGS += -Wall -Wextra -O3 -march=native
 
 prefix = /usr/local
 backlight_dir = /sys/class/backlight
-vendor_backlight_dir = $(backlight_dir)/$(shell find $(backlight_dir) -type l -exec basename {}\; | head -n1)
+vendor_backlight_dir = $(backlight_dir)/$(shell find $(backlight_dir) -type l -exec basename {}\; | head -n 1)
 max_brightness = $(shell cat $(vendor_backlight_dir)/max_brightness)
 
 DEFINES += -D BRIGHTNESS_FILE=\"$(vendor_backlight_dir)/brightness\"
